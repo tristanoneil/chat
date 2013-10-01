@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js"></script>
+    <script src="./app.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/foundation.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+  </head>
+  <body>
+    <div class="row">
+      <div class="small-12 columns">
+        <h1>Chat</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <form>
+          <input type="text" placeholder="What's Your Name?">
+          <input type="submit" class="button small" value="Enter Room">
+        </form>
+      </div>
+
+      <div class="small-12 columns">
+        <ul class="pricing-table">
+          <li class="bullet-item">
+            <strong>{{message.person}}: </strong>
+            {{message.content}}
+          </li>
+
+          <li class="cta-button">
+            <form name="messageForm">
+              <input type="text" name="content" required>
+              <input type="submit" value="Send" class="button small">
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

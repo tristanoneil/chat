@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>Chat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js"></script>
+    <script src="./app.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/foundation.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+  </head>
+  <body ng-controller="ChatController">
+    <div class="row">
+      <div class="small-12 columns">
+        <h1>Chat</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns" ng-hide="nameEntered">
+        <form ng-submit="nameEntered=true">
+          <input type="text" placeholder="What's Your Name?" ng-model="name">
+          <input type="submit" class="button small" value="Enter Room">
+        </form>
+      </div>
+
+      <div class="small-12 columns" ng-show="nameEntered">
+        <ul class="pricing-table">
+          <li class="bullet-item" ng-repeat="message in messages">
+            <strong>{{message.person}}: </strong>
+            {{message.content}}
+          </li>
+
+          <li class="cta-button">
+            <form name="messageForm" ng-submit="saveMessage()">
+              <input type="text" name="content" ng-model="message.content" required>
+              <input type="submit" value="Send" class="button small">
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
